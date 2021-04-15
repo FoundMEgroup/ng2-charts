@@ -6,10 +6,9 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/cypress/snapshots/*/__diff_output__
 
 # dependencies
-node_modules
+/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -45,5 +44,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/temp
-/Web.config
