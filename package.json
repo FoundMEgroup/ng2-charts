@@ -4,6 +4,7 @@
   "scripts": {
     "demo.deploy-gh-pages": "gh-pages -d dist/ng2-charts-demo",
     "ng": "ng",
+    "prepare": "npm run build",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod --deploy-url /ng2-charts/ --base-href /ng2-charts",
