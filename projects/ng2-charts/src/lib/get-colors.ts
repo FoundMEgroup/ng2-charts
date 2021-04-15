@@ -14,7 +14,7 @@ export function getColors(chartType: string, index: number, count: number): Colo
     return formatPolarAreaColors(generateColors(count));
   }
 
-  if (chartType === 'line' || chartType === 'radar') {
+  if (chartType === 'line' || chartType === 'radar' || chartType === 'lineWithLine') {
     return formatLineColor(generateColor(index));
   }
 

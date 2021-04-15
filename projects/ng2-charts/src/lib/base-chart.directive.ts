@@ -61,6 +61,32 @@ enum UpdateType {
   Refresh
 }
 
+// Extend the line chart with a vertical indicator line chart thingy
+Chart.controllers.line.extend({
+  name: "lineWithLine",
+  initialize: function() {
+    Chart.controllers.line.prototype.initialize.apply(this, arguments);
+
+    var originalShowTooltip = this.showTooltip;
+    this.showTooltip = function(activePoints) {
+
+      if (activePoints.length) {
+        var ctx = this.chart.ctx;
+        var scale = this.scale;
+        ctx.save();
+        ctx.strokeStyle = '#aaa';
+        ctx.beginPath();
+        ctx.moveTo(activePoints[0].x, scale.startPoint);
+        ctx.lineTo(activePoints[0].x, scale.endPoint);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      return originalShowTooltip.apply(this, arguments);
+    }
+  }
+});
+
 @Directive({
   // tslint:disable-next-line:directive-selector
   selector: 'canvas[baseChart]',
